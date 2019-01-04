@@ -23,7 +23,7 @@ class PlotLearning(Callback):
         self.val_acc.append(logs.get('val_acc'))
         self.i += 1
 
-        f, (ax1, ax2) = plt.subplots(1, 2, sharex='all', figsize=(20, 8))
+        f, (ax1, ax2) = plt.subplots(1, 2, sharex='all', figsize=(40, 16), dpi=80)
 
         ax1.set_yscale('log')
         ax1.plot(self.x, self.losses, label="loss")
@@ -38,4 +38,4 @@ class PlotLearning(Callback):
         # plt.show()
 
     def on_train_end(self, logs=None):
-        plt.savefig('foo.png', bbox_inches='tight')
+        plt.savefig('foo.pdf', bbox_inches='tight')
